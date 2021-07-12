@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mulish:ital@1&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <style>
+    html, body{
+        padding:0;
+        margin:0;
+    }
+    .frm-label{
+        color: #fff;
+        text-align:right;
+        padding-right:10px;
+    }
+.ch1 {
+    top: 0;
+    width: 100%;
+    height: 3000px;
+    z-index: 10;
+    position: absolute;
+    overflow: hidden;
+    background: linear-gradient( #195190 0%,#195190 66%, #b55a5a 100%);
+    transition: transform 2000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,height 2000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+.ch10 {
+    height: 64px;
+    vertical-align: top;
+    margin:5px;
+}
+.logohead{
+    font-family:'Mulish', sans-serif;
+    color: #fff;
+    display:inline-block;
+    padding:1rem;
+}
+.phead{
+    color: #fff;
+    font-size: 4rem;
+    font-family: 'Mulish', sans-serif;
+    text-align: center;
+    margin-top: 1%;
+
+}
+.wbtn{
+    display:inline-block;
+    border-radius: 99px;
+    background-color: #d81b60;
+    padding: 5px 24px 5px 24px;
+    color: #fff;
+    margin-top:1%;
+}
+.label, #count{
+    color: #fff;
+}
+video{
+width:70%;
+}
+    </style>
+</head>
+<body>
+<div class="ch1">
+    <div class="container">
+        <img class="ch10" src="static/logo.svg" alt="Private Chat Logo">
+        <span class="logohead">
+            Meet Video Chat
+        </span>
+        <div class="phead">
+            Meet Video Chat App
+        </div>
+        <form>
+            <div class="row">
+                <label for="username" class="col-3 frm-label">Name: </label>
+                <div class="col-6"><input type="text" name="username" id="username" class="form-control"></div>
+
+            </div>
+            <div class="text-center">
+                <a id="join_leave" class="m-1 wbtn">Join call</a>
+                <button id="share_screen" class="btn btn-sm btn-primary m-1" style="visibility:hidden" disabled></button>
+                <button id="toggle_chat" class="btn btn-sm btn-primary m-1" style="visibility:hidden"  disabled></button>
+            </div>
+
+
+        </form>
+         <div>
+            <p id="count">Disconnected.</p>
+
+            <div id="root">
+                <div id="container" class="container text-center">
+                    <div id="local" class="participant"><div>
+                </div>
+                <div class="label">Me</div></div>
+                </div>
+                <div id="chat" >
+                    <div id="chat-scroll">
+                        <div id="chat-content">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <script src="https://media.twiliocdn.com/sdk/js/video/releases/2.3.0/twilio-video.min.js"></script>
+        <script src="https://media.twiliocdn.com/sdk/js/conversations/releases/1.0.0/twilio-conversations.min.js"></script>
+        <script src="{{ url_for('static', filename='app.js') }}"></script>
+    </div>
+
+</div>
+</body>
+</html>
